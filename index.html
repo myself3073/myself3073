@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +10,12 @@
 	<link rel="stylesheet" href="./public/less/main.css">
 	<script src="./libs/angular.min.js"></script>
 	<script src="./libs/bower_components/angular-route/angular-route.js"></script>
-	<script src="./scripts/app.js"></script>
-	<script src="./scripts/controllers.js"></script>
+	<!-- angularJS 入口 -->
+	<script src="./scripts/app_copy.js"></script>
+	<!-- 引入控制器模块 -->
+	<script src="./scripts/controller_copy.js"></script>
 </head>
+
 <body ng-app="Yike">
 	<div class="viewport">
 		<!-- 侧边导航 -->
@@ -23,11 +27,41 @@
 					</div>
 					<span>登录</span>
 				</dt>
-				<dd ng-class="{active: key == index}" ng-repeat="(key, nav) in navs" ng-click="toggle()">
+				<dd class="active">
+					<a href="" class="icon-home">
+						<span>今日一刻</span>
+					</a>
+				</dd>
+				<dd class="active">
+					<a href="" class="icon-file-empty">
+						<span>往期内容</span>
+					</a>
+				</dd>
+				<dd class="active">
+					<a href="" class="icon-pencil">
+						<span>热门作者</span>
+					</a>
+				</dd>
+				<dd class="active">
+					<a href="" class="icon-menu">
+						<span>栏目浏览</span>
+					</a>
+				</dd>
+				<dd class="active">
+					<a href="" class="icon-heart">
+						<span>我的喜欢</span>
+					</a>
+				</dd>
+				<dd class="active">
+					<a href="" class="icon-cog">
+						<span>设置</span>
+					</a>
+				</dd>
+				<!-- <dd ng-class="{active: key == index}" ng-repeat="(key, nav) in navs" ng-click="toggle()">
 					<a href="{{nav.link}}" class="{{nav.icon}}">
 						<span>{{nav.text}}</span>
 					</a>
-				</dd>
+				</dd> -->
 			</dl>
 			<div class="extra">
 				<a href="javascript:;" class="icon-image">夜晚</a>
@@ -36,19 +70,17 @@
 		</div>
 		<div class="container">
 			<!-- 头部 -->
-			<div ng-class="{header:true, collapse: collapsed}" ng-click="toggle()">
-				<a href="javascript:;" class="menu icon-menu"></a>
-				<h2>{{title}}</h2>
+			<div ng-class="{header:true, collapse: collapsed}">
+				<a href="javascript:;" class="menu icon-menu" ng-click="toggle()"></a>
+				<h2>今日一刻</h2>
 				<a href="javascript:;" class="search icon-search"></a>
 			</div>
 			<!-- 主体 -->
-			<div ng-class="{body:true, collapse: collapsed}">
-				<img class="loading" ng-hide="loaded" src="./public/images/loading.gif" alt="">
-				<div ng-view></div>
+			<div ng-class="body">
+				<!-- 占位符 -->
 			</div>
 		</div>
 	</div>
 </body>
+
 </html>
-
-
