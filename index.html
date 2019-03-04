@@ -8,6 +8,8 @@
 	<title>豆瓣一刻</title>
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="./public/less/main.css">
+	<link rel="stylesheet" href="./public/less/main.less">
+	<script src="./public/libs/less.js"></script>
 	<script src="./libs/angular.min.js"></script>
 	<script src="./libs/bower_components/angular-route/angular-route.js"></script>
 	<!-- angularJS 入口 -->
@@ -27,7 +29,7 @@
 					</div>
 					<span>登录</span>
 				</dt>
-				<dd class="active">
+				<!-- <dd class="active">
 					<a href="" class="icon-home">
 						<span>今日一刻</span>
 					</a>
@@ -56,12 +58,12 @@
 					<a href="" class="icon-cog">
 						<span>设置</span>
 					</a>
-				</dd>
-				<!-- <dd ng-class="{active: key == index}" ng-repeat="(key, nav) in navs" ng-click="toggle()">
+				</dd> -->
+				<dd ng-class="active" ng-repeat="(key, nav) in navs" ng-click="toggle()">
 					<a href="{{nav.link}}" class="{{nav.icon}}">
 						<span>{{nav.text}}</span>
 					</a>
-				</dd> -->
+				</dd> 
 			</dl>
 			<div class="extra">
 				<a href="javascript:;" class="icon-image">夜晚</a>
@@ -78,6 +80,7 @@
 			<!-- 主体 -->
 			<div ng-class="body">
 				<!-- 占位符 -->
+				<div ng-view></div>
 			</div>
 		</div>
 	</div>

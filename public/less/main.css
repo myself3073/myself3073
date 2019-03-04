@@ -862,7 +862,7 @@ img {
 }
 .body .settings li {
   line-height: 1;
-  padding-right: ;
+  /* padding-right: ; */
   padding: 0.875rem 0.75rem 0.875rem 0;
   font-size: 1rem;
   border-bottom: 1px solid #dadada;

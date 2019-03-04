@@ -2,10 +2,26 @@
 
 var Yike = angular.module('Yike',['ngRoute','Controller_copy']);
 
+//路由
+Yike.config(['$routeProvider',function($routeProvider){
+
+	$routeProvider.when('/today',{
+		templateUrl:'./views/today_copy.html',
+		controller:'TodayController'
+	}).when('/older',{
+		templateUrl:'./views/older_copy.html',
+		controller:'OlderController'
+	}).otherwise({
+		redirectTo:'/today'
+	})
+
+}])
+
+//独立运行的模块
 Yike.run(['$rootScope', function ($rootScope) {
-
+	//初始类名
 	$rootScope.collapsed = false;
-
+	//全局方法
 	$rootScope.toggle = function () {
 
 		$rootScope.collapsed = !$rootScope.collapsed;
