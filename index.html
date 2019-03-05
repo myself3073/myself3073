@@ -8,8 +8,8 @@
 	<title>豆瓣一刻</title>
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="./public/less/main.css">
-	<link rel="stylesheet" href="./public/less/main.less">
-	<script src="./public/libs/less.js"></script>
+	<!-- <link rel="stylesheet" href="./public/less/main.less">
+	<script src="./public/libs/less.js"></script> -->
 	<script src="./libs/angular.min.js"></script>
 	<script src="./libs/bower_components/angular-route/angular-route.js"></script>
 	<!-- angularJS 入口 -->
@@ -78,9 +78,11 @@
 				<a href="javascript:;" class="search icon-search"></a>
 			</div>
 			<!-- 主体 -->
-			<div ng-class="body">
-				<!-- 占位符 -->
-				<div ng-view></div>
+			<div ng-class="{body:true,collapse: collapsed}">
+					<img class="loading" loading ng-hide="loaded" src="./public/images/loading.gif"></img>
+					<!-- 占位符 -->
+					<div ng-view></div>
+				</div>
 			</div>
 		</div>
 	</div>

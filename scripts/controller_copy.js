@@ -40,14 +40,21 @@ angular.module('Controller_copy',[]).controller('NavController',['$scope',functi
 
 }])
 //今日一刻
-.controller('TodayController',['$scope','$http',function($scope,$http){
+.controller('TodayController',['$scope','$rootScope','$http','$filter',function($scope,$rootScope,$http,$filter){
+
+    //加载圈处理
+    $rootScope.loaded = false;
 
     $http({
         url:'./api/today.php',
-        method:'get'
+        method:'GET'
     }).success(function(info){
 
         console.log(info);
+
+        $rootScope.loaded = true;
+
+        $scope.date = $filter('date')(info.date,'ddMMM');
 
         $scope.posts = info.posts;
 
@@ -55,8 +62,25 @@ angular.module('Controller_copy',[]).controller('NavController',['$scope',functi
 
 }])
 //往期内容
-.controller('OlderController',['$scope','$http',function($scope,$http){
+.controller('OlderController',['$scope','$rootScope','$http','$filter',function($scope,$rootScope,$http,$filter){
 
+    //加载圈处理
+    $rootScope.loaded = false;
+
+    $http({
+        url:'./api/older.php',
+        method:'GET'
+    }).success(function(info){
+
+        console.log(info);
+
+        $rootScope.loaded = true;
+
+        $scope.date = info.date;
+
+        $scope.posts = info.posts;
+        
+    })
     
 
 }])
