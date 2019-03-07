@@ -1,8 +1,8 @@
 <?php
 
-    // $now = time() 获取当前时间错
+    // $now = time() //获取当前时间错
 
-    $lastDay = strtotime('yesterday',1479716233);
+    $lastDay = strtotime('yesterday');
 
     $lastDay =  date('Y-m-d',$lastDay);
 
